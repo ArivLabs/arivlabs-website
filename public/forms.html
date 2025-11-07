@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hidden Forms for Netlify</title>
+</head>
+<body style="display: none;">
+    <!-- This file helps Netlify detect forms during build -->
+    
+    <!-- Minimal Contact Form -->
+    <form name="minimal-contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="company" />
+        <select name="subject">
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Professional Networking">Professional Networking</option>
+            <option value="Technical Discussion">Technical Discussion</option>
+            <option value="Collaboration">Collaboration</option>
+            <option value="Other">Other</option>
+        </select>
+        <textarea name="message"></textarea>
+        <input type="hidden" name="form-name" value="minimal-contact" />
+    </form>
+    
+    <!-- Full Contact Form -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="company" />
+        <select name="projectType">
+            <option value="Staff Augmentation">Staff Augmentation</option>
+            <option value="Dedicated Team">Dedicated Team</option>
+            <option value="Project-Based Consulting">Project-Based Consulting</option>
+            <option value="CTO Advisory">CTO Advisory</option>
+            <option value="MVP Development">MVP Development</option>
+            <option value="Full Product Development">Full Product Development</option>
+            <option value="Other">Other</option>
+        </select>
+        <select name="budget">
+            <option value="Startup Budget">Startup Budget</option>
+            <option value="Small Project">Small Project</option>
+            <option value="Medium Project">Medium Project</option>
+            <option value="Large Project">Large Project</option>
+            <option value="Enterprise Scale">Enterprise Scale</option>
+            <option value="Ongoing Partnership">Ongoing Partnership</option>
+        </select>
+        <select name="timeline">
+            <option value="ASAP">ASAP</option>
+            <option value="1-3 months">1-3 months</option>
+            <option value="3-6 months">3-6 months</option>
+            <option value="6-12 months">6-12 months</option>
+            <option value="Flexible">Flexible</option>
+        </select>
+        <textarea name="message"></textarea>
+        <input type="hidden" name="form-name" value="contact" />
+    </form>
+</body>
+</html>
