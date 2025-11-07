@@ -6,28 +6,41 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   
-  <!-- Homepage -->
+  <!-- Homepage - ArivLabs Main -->
   <url>
     <loc>https://arivlabs.com/</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://arivlabs.com/logo_black_transparent.png</image:loc>
+      <image:title>ArivLabs Logo</image:title>
+      <image:caption>ArivLabs - Professional entity of Varun K Nair</image:caption>
+    </image:image>
   </url>
   
-  <!-- About Section -->
+  <!-- About Section - Varun K Nair Profile -->
   <url>
     <loc>https://arivlabs.com/#about</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
   <!-- Contact Section -->
   <url>
     <loc>https://arivlabs.com/#contact</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- Thank You Page -->
+  <url>
+    <loc>https://arivlabs.com/thank-you</loc>
+    <lastmod>2025-11-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   
 </urlset>

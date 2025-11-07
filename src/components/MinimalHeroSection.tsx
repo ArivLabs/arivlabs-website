@@ -47,9 +47,10 @@ const MinimalHeroSection = () => {
 
           {/* Subheadline */}
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            <strong>Secure. Scalable. Simple</strong> - I'm a senior software engineer with close to a decade of experience 
-            building enterprise software, currently working at <strong>Cyberdesk GmbH</strong> (Germany-based cybersecurity startup). 
-            ArivLabs serves as my professional entity.
+            <strong>Secure. Scalable. Simple</strong> - Welcome to <strong>ArivLabs</strong>, the professional entity of 
+            Varun K Nair, a senior software engineer with close to a decade of experience building enterprise software. 
+            Currently working at <strong>Cyberdesk GmbH</strong> (Germany-based cybersecurity startup), specializing in 
+            cybersecurity and enterprise software development.
           </p>
 
           {/* CTA Buttons */}
