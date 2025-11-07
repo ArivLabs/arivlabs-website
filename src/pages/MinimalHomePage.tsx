@@ -1,6 +1,6 @@
-import MinimalHeroSection from '../components/MinimalHeroSection'
-import MinimalAboutSection from '../components/MinimalAboutSection'
-import MinimalContactSection from '../components/MinimalContactSection'
+import MinimalHeroSection from '../components/MinimalHeroSection.tsx'
+import MinimalAboutSection from '../components/MinimalAboutSection.tsx'
+import MinimalContactSection from '../components/MinimalContactSection.tsx'
 
 const MinimalHomePage = () => {
   return (

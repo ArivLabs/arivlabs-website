@@ -1,8 +1,8 @@
-import HeroSection from '../components/HeroSection'
-import ServicesSection from '../components/ServicesSection'
-import PricingSection from '../components/PricingSection'
-import AboutSection from '../components/AboutSection'
-import ContactSection from '../components/ContactSection'
+import HeroSection from '../components/HeroSection.tsx'
+import ServicesSection from '../components/ServicesSection.tsx'
+import PricingSection from '../components/PricingSection.tsx'
+import AboutSection from '../components/AboutSection.tsx'
+import ContactSection from '../components/ContactSection.tsx'
 
 const HomePage = () => {
   return (
