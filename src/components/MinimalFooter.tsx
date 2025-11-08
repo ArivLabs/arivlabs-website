@@ -49,7 +49,7 @@ const MinimalFooter = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>Professional consulting through ArivLabs • Based in Germany • Available globally</p>
+          <p>Professional consulting through ArivLabs • Based in India • Available globally</p>
         </div>
       </div>
     </footer>

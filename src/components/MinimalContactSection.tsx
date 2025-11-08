@@ -66,20 +66,20 @@ const MinimalContactSection = () => {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               Get in Touch
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">
               Interested in connecting or discussing potential collaboration? 
               I'd love to hear from you.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
                 
                 <div className="space-y-6">
@@ -157,14 +157,14 @@ const MinimalContactSection = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
                 <form 
                   name="minimal-contact" 
                   method="POST" 
                   data-netlify="true" 
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
                   {/* Netlify form detection */}
                   <input type="hidden" name="form-name" value="minimal-contact" />

@@ -18,8 +18,8 @@ const MinimalAboutSection = () => {
       company: '42Hertz (Acquired by Cisco)',
       role: 'Senior Software Engineer',
       period: '2017 - 2023',
-      description: 'Enterprise software consulting firm specializing in collaboration tools',
-      focus: 'Enterprise Software, Collaboration'
+      description: 'Enterprise software consulting firm acquired by Cisco. Post-acquisition: Cisco WebEx Integrations Team and Security Business Group',
+      focus: 'Enterprise Software, Collaboration, Security'
     },
     {
       company: 'Silver Oak Health',
@@ -46,21 +46,21 @@ const MinimalAboutSection = () => {
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               About ArivLabs & Varun K Nair
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               ArivLabs is my professional entity. I'm currently a Senior Software Engineer at Cyberdesk GmbH 
               focused on cybersecurity and enterprise software development.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
             {/* Left Column - About */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Professional Background</h3>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+            <div className="px-4 sm:px-0">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Professional Background</h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 With close to a decade of experience in software engineering, I've helped startups scale from early stage 
                 to acquisition, and enterprises build world-class products. I specialize in cybersecurity and 
                 enterprise software development.
