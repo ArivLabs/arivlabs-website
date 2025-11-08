@@ -1,3 +1,5 @@
+import MaskedText from './MaskedText'
+
 const MinimalHeroSection = () => {
   return (
     <section className="relative bg-gradient-to-br from-primary-50 to-accent-50 section-padding overflow-hidden">
@@ -49,7 +51,7 @@ const MinimalHeroSection = () => {
           <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
             <strong>Secure. Scalable. Simple</strong> - Welcome to <strong>ArivLabs</strong>, the professional entity of 
             Varun K Nair, a senior software engineer with close to a decade of experience building enterprise software. 
-            Currently working at <strong>CyberDesk GmbH</strong> (Germany-based cybersecurity startup), specializing in 
+            Currently working at <strong><MaskedText text="CyberDesk GmbH" className="inline" /></strong> (Germany-based cybersecurity startup), specializing in 
             cybersecurity and enterprise software development.
           </p>
 

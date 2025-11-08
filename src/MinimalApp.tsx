@@ -9,7 +9,7 @@ function MinimalApp() {
     <>
       <Helmet>
         <title>Varun K Nair - ArivLabs | Senior Software Engineer & Technical Consultant</title>
-        <meta name="description" content="Varun K Nair - Secure. Scalable. Simple. Senior Software Engineer at CyberDesk GmbH. Professional entity ArivLabs specializing in cybersecurity and enterprise software." />
+        <meta name="description" content="Varun K Nair - Secure. Scalable. Simple. Senior Software Engineer at Current Employer. Professional entity ArivLabs specializing in cybersecurity and enterprise software." />
         <meta name="keywords" content="Varun K Nair, ArivLabs, software engineer, cybersecurity, enterprise software, Cyberdesk, DSPM, data protection" />
         <meta property="og:title" content="Varun K Nair - ArivLabs | Senior Software Engineer" />
         <meta property="og:description" content="Secure. Scalable. Simple. Senior Software Engineer specializing in cybersecurity and enterprise software development." />

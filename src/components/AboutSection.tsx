@@ -1,11 +1,13 @@
 import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation'
+import MaskedText from './MaskedText'
+import { COMPANY_NAMES } from '../constants/companyNames'
 
 const AboutSection = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation()
   const { ref: experienceRef, visibleItems: visibleExperience } = useStaggeredAnimation(4, 200)
   const experience = [
     {
-      company: 'CyberDesk GmbH',
+      company: COMPANY_NAMES.CURRENT_EMPLOYER,
       role: 'Senior Software Engineer',
       period: '2025 - Present',
       description: 'Germany-based cybersecurity startup focused on innovative security solutions',
@@ -106,7 +108,9 @@ const AboutSection = () => {
                   </div>
                   <p className="text-sm text-gray-500">{item.period}</p>
                   <h4 className="text-lg font-bold text-gray-900 mb-1">{item.role}</h4>
-                  <p className="text-primary-600 font-medium mb-2">{item.company}</p>
+                  <p className="text-primary-600 font-medium mb-2">
+                    <MaskedText text={item.company} />
+                  </p>
                   <p className="text-gray-600 text-sm sm:text-base mb-2">{item.description}</p>
                   <p className="text-gray-500 text-xs sm:text-sm">Focus: {item.focus}</p>
                 </div>
@@ -116,7 +120,7 @@ const AboutSection = () => {
             <div className="bg-primary-50 rounded-lg p-6">
               <h4 className="font-bold text-gray-900 mb-2">Current Status</h4>
               <p className="text-gray-700 text-sm sm:text-base">
-                <strong>Primary Role:</strong> Senior Software Engineer at CyberDesk GmbH<br />
+                <strong>Primary Role:</strong> Senior Software Engineer at <MaskedText text="CyberDesk GmbH" className="inline" /><br />
                 <strong>Professional Entity:</strong> ArivLabs<br />
                 <strong>Focus:</strong> Cybersecurity and Enterprise Software
               </p>

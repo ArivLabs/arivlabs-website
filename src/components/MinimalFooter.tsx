@@ -1,4 +1,5 @@
 import Logo from './Logo'
+import MaskedText from './MaskedText'
 
 const MinimalFooter = () => {
   return (
@@ -30,7 +31,7 @@ const MinimalFooter = () => {
                 </a>
               </div>
               <div className="text-sm">
-                Currently: Senior Software Engineer at CyberDesk GmbH
+                Currently: Senior Software Engineer at <MaskedText text="CyberDesk GmbH" className="inline" />
               </div>
               <div className="text-sm">
                 Professional software engineer

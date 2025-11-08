@@ -350,6 +350,28 @@ html {
   }
 }
 
+/* Masked Text Styling */
+.masked-text {
+  position: relative;
+  background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+.masked-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(156, 163, 175, 0.3), rgba(209, 213, 219, 0.3));
+  border-radius: 4px;
+  z-index: -1;
+}
+
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
   .hover-lift:hover,
