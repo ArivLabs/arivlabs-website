@@ -154,7 +154,7 @@ const MinimalContactSection = () => {
                     </div>
                     <div>
                       <a 
-                        href="https://linkedin.com/in/varunkn" 
+                        href="https://www.linkedin.com/in/varunknair1/" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="text-primary-600 hover:text-primary-700 font-medium transition-colors text-sm sm:text-base"
