@@ -11,7 +11,7 @@ const HeroSection = () => {
           <div className="flex flex-row items-center justify-center gap-2 sm:gap-6 mb-8 animate-fade-in-up">
             {/* Secure */}
             <div className="flex items-center space-x-1 sm:space-x-3 px-2 sm:px-4 py-2 sm:py-3 bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover-lift stagger-1 animate-scale-in">
-              <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center animate-float">
+              <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
                 <svg className="w-3 h-3 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                 </svg>
@@ -21,7 +21,7 @@ const HeroSection = () => {
 
             {/* Scalable */}
             <div className="flex items-center space-x-1 sm:space-x-3 px-2 sm:px-4 py-2 sm:py-3 bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover-lift stagger-2 animate-scale-in">
-              <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-primary-600 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '0.5s' }}>
+              <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-primary-600 rounded-full flex items-center justify-center">
                 <svg className="w-3 h-3 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
                 </svg>
@@ -31,7 +31,7 @@ const HeroSection = () => {
 
             {/* Simple */}
             <div className="flex items-center space-x-1 sm:space-x-3 px-2 sm:px-4 py-2 sm:py-3 bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover-lift stagger-3 animate-scale-in">
-              <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500 to-accent-600 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
+              <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500 to-accent-600 rounded-full flex items-center justify-center">
                 <svg className="w-3 h-3 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd" />
                 </svg>
