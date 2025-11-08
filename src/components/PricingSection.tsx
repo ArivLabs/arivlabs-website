@@ -1,4 +1,8 @@
+import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation'
+
 const PricingSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation()
+  const { ref: cardsRef, visibleItems: visibleCards } = useStaggeredAnimation(3, 200)
   // Professional SVG icon component
   const EngagementIcon = ({ type, className = "w-8 h-8" }: { type: string; className?: string }) => {
     const icons = {
@@ -73,10 +77,10 @@ const PricingSection = () => {
   ]
 
   return (
-    <section id="pricing" className="section-padding bg-gray-50">
+    <section id="pricing" className="section-padding bg-gray-50" ref={sectionRef}>
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Flexible Engagement Models
           </h2>
@@ -87,11 +91,17 @@ const PricingSection = () => {
         </div>
 
         {/* Engagement Model Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12" ref={cardsRef}>
           {engagementModels.map((model, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+            <div 
+              key={index} 
+              className={`bg-white rounded-xl shadow-lg p-8 card-hover hover-lift transition-all duration-500 ${
+                visibleCards[index] ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ animationDelay: `${200 + index * 200}ms` }}
+            >
               <div className="text-center mb-8">
-                <div className="text-primary-600 mb-4 flex justify-center">
+                <div className="text-primary-600 mb-4 flex justify-center icon-bounce">
                   <EngagementIcon type={model.iconType} className="w-12 h-12" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{model.title}</h3>
@@ -128,17 +138,17 @@ const PricingSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-8 text-center">
+        <div className={`bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-8 text-center hover-lift transition-all duration-1000 delay-600 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Scale Your Team?</h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Every project is unique. We provide custom proposals based on your specific requirements, 
             timeline, and budget. Let's discuss how we can help you achieve your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#contact" className="btn-primary">
+            <a href="#contact" className="btn-primary btn-animate hover-glow">
               Get Custom Proposal
             </a>
-            <a href="mailto:varun@arivlabs.com" className="btn-secondary">
+            <a href="mailto:varun@arivlabs.com" className="btn-secondary btn-animate hover-lift">
               Schedule a Call
             </a>
           </div>

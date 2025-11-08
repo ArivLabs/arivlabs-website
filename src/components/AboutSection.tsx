@@ -1,4 +1,8 @@
+import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation'
+
 const AboutSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation()
+  const { ref: experienceRef, visibleItems: visibleExperience } = useStaggeredAnimation(4, 200)
   const experience = [
     {
       company: 'CyberDesk GmbH',
@@ -42,11 +46,11 @@ const AboutSection = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-white" ref={sectionRef}>
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
-          <div className="px-4 sm:px-0">
+          <div className={`px-4 sm:px-0 transition-all duration-1000 ${isVisible ? 'animate-fade-in-left' : 'opacity-0 -translate-x-8'}`}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               Meet Varun K Nair
             </h2>
@@ -59,7 +63,13 @@ const AboutSection = () => {
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Core Expertise</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 {skills.map((skill, index) => (
-                  <div key={index} className="flex items-center text-gray-700">
+                  <div 
+                    key={index} 
+                    className={`flex items-center text-gray-700 transition-all duration-500 ${
+                      isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ animationDelay: `${300 + index * 100}ms` }}
+                  >
                     <svg className="w-4 h-4 text-primary-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
@@ -69,22 +79,28 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <a href="#contact" className="btn-primary">
+            <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
+              <a href="#contact" className="btn-primary btn-animate hover-glow">
                 Work With Me
               </a>
-              <a href="mailto:varun@arivlabs.com" className="btn-secondary">
+              <a href="mailto:varun@arivlabs.com" className="btn-secondary btn-animate hover-lift">
                 Send Email
               </a>
             </div>
           </div>
 
           {/* Right Column - Experience */}
-          <div className="px-4 sm:px-0 mt-8 lg:mt-0">
+          <div className={`px-4 sm:px-0 mt-8 lg:mt-0 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-8'}`}>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">Professional Journey</h3>
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-6 sm:space-y-8" ref={experienceRef}>
               {experience.map((item, index) => (
-                <div key={index} className="relative pl-8 border-l-2 border-primary-200">
+                <div 
+                  key={index} 
+                  className={`relative pl-8 border-l-2 border-primary-200 card-hover transition-all duration-500 ${
+                    visibleExperience[index] ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ animationDelay: `${400 + index * 200}ms` }}
+                >
                   <div className="absolute -left-3 top-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
                     {index + 1}
                   </div>

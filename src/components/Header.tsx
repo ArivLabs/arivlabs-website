@@ -1,8 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navigation = [
@@ -13,7 +22,9 @@ const Header = () => {
   ]
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className={`bg-white sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'shadow-lg backdrop-blur-md bg-white/95' : 'shadow-sm'
+    } animate-fade-in-up`}>
       <nav className="container-custom">
         <div className="flex justify-between items-center py-6">
           {/* Logo - Responsive sizing */}
@@ -34,18 +45,20 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+            {navigation.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200"
+                className="text-gray-700 hover:text-primary-600 font-medium transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${100 + index * 100}ms` }}
               >
                 {item.name}
               </a>
             ))}
             <a
               href="#contact"
-              className="btn-primary"
+              className="btn-primary btn-animate hover-glow animate-fade-in-up"
+              style={{ animationDelay: '500ms' }}
             >
               Get Started
             </a>

@@ -1,10 +1,13 @@
 import Logo from './Logo'
 
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+
 const Footer = () => {
+  const { ref: footerRef, isVisible } = useScrollAnimation({ threshold: 0.2 })
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 text-white" ref={footerRef}>
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-4 gap-8 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="mb-4">
