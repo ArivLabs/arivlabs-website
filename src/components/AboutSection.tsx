@@ -1,34 +1,44 @@
 const AboutSection = () => {
   const experience = [
     {
-      company: 'Silver Oak Health',
-      role: 'Product Engineer (Founding Team)',
-      description: 'Healthcare startup focused on mental health and employee wellbeing programs',
-      focus: 'Healthcare, SaaS, Enterprise Solutions'
-    },
-    {
-      company: '42Hertz (Acquired by Cisco)',
+      company: 'Cyberdesk GmbH',
       role: 'Senior Software Engineer',
-      description: 'Enterprise software consulting firm specializing in collaboration tools',
-      focus: 'Enterprise Software, Collaboration, Consulting'
+      period: '2025 - Present',
+      description: 'Germany-based cybersecurity startup focused on innovative security solutions',
+      focus: 'Cybersecurity, Enterprise Software'
     },
     {
       company: 'Normalyze (Acquired by Proofpoint)',
       role: 'Senior Software Engineer',
+      period: '2023 - 2025',
       description: 'DSPM cybersecurity startup focused on data security posture management',
-      focus: 'Cybersecurity, AI, Data Protection, DSPM, SaaS'
+      focus: 'Cybersecurity, Data Protection'
+    },
+    {
+      company: '42Hertz (Acquired by Cisco)',
+      role: 'Senior Software Engineer',
+      period: '2017 - 2023',
+      description: 'Enterprise software consulting firm acquired by Cisco. Post-acquisition: Cisco WebEx Integrations Team and Security Business Group',
+      focus: 'Enterprise Software, Collaboration, Security'
+    },
+    {
+      company: 'Silver Oak Health',
+      role: 'Product Engineer (Founding Team)',
+      period: '2016 - 2017',
+      description: 'Healthcare startup focused on mental health and employee wellbeing programs',
+      focus: 'Healthcare, SaaS, Enterprise Solutions'
     }
   ]
 
   const skills = [
     'Full-Stack Development',
     'Cloud Architecture (AWS, Azure, GCP)',
-    'AI & Machine Learning',
     'Cybersecurity & DSPM',
     'SaaS Platform Development',
     'Enterprise Software',
     'Team Leadership',
-    'Technical Strategy'
+    'Technical Strategy',
+    'Data Protection'
   ]
 
   return (
@@ -73,25 +83,26 @@ const AboutSection = () => {
           <div className="px-4 sm:px-0 mt-8 lg:mt-0">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">Professional Journey</h3>
             <div className="space-y-6 sm:space-y-8">
-              {experience.map((exp, index) => (
-                <div key={index} className="border-l-4 border-primary-500 pl-4 sm:pl-6">
-                  <h4 className="text-base sm:text-lg font-bold text-gray-900">{exp.role}</h4>
-                  <h5 className="text-primary-600 font-semibold mb-2 text-sm sm:text-base">{exp.company}</h5>
-                  <p className="text-gray-600 mb-3 text-sm sm:text-base leading-relaxed">{exp.description}</p>
-                  <div className="inline-block bg-primary-50 text-primary-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
-                    {exp.focus}
+              {experience.map((item, index) => (
+                <div key={index} className="relative pl-8 border-l-2 border-primary-200">
+                  <div className="absolute -left-3 top-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                    {index + 1}
                   </div>
+                  <p className="text-sm text-gray-500">{item.period}</p>
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">{item.role}</h4>
+                  <p className="text-primary-600 font-medium mb-2">{item.company}</p>
+                  <p className="text-gray-600 text-sm sm:text-base mb-2">{item.description}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm">Focus: {item.focus}</p>
                 </div>
               ))}
             </div>
 
-            {/* Current Status */}
-            <div className="mt-6 sm:mt-8 bg-accent-50 rounded-lg p-4 sm:p-6">
-              <h4 className="font-bold text-gray-900 mb-2 text-sm sm:text-base">Currently</h4>
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                Senior Software Engineer at <span className="font-semibold">Cyberdesk GmbH</span> 
-                (Germany-based Cybersecurity Startup) while building ArivLabs to help more 
-                startups and enterprises scale their engineering teams.
+            <div className="bg-primary-50 rounded-lg p-6">
+              <h4 className="font-bold text-gray-900 mb-2">Current Status</h4>
+              <p className="text-gray-700 text-sm sm:text-base">
+                <strong>Primary Role:</strong> Senior Software Engineer at Cyberdesk GmbH<br />
+                <strong>Professional Entity:</strong> ArivLabs<br />
+                <strong>Focus:</strong> Cybersecurity and Enterprise Software
               </p>
             </div>
           </div>
