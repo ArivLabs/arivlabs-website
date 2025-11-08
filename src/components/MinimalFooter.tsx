@@ -26,8 +26,8 @@ const MinimalFooter = () => {
             <h3 className="font-semibold mb-4 text-lg">Get in Touch</h3>
             <div className="space-y-2 text-gray-300">
               <div>
-                <a href="mailto:varun@arivlabs.com" className="hover:text-white transition-colors">
-                  varun@arivlabs.com
+                <a href="#contact" className="hover:text-white transition-colors">
+                  Contact via form
                 </a>
               </div>
               <div className="text-sm">

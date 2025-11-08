@@ -148,8 +148,8 @@ const PricingSection = () => {
             <a href="#contact" className="btn-primary btn-animate hover-glow">
               Get Custom Proposal
             </a>
-            <a href="mailto:varun@arivlabs.com" className="btn-secondary btn-animate hover-lift">
-              Schedule a Call
+            <a href="#contact" className="btn-secondary btn-animate hover-lift">
+              Contact Us
             </a>
           </div>
           

@@ -85,8 +85,8 @@ const AboutSection = () => {
               <a href="#contact" className="btn-primary btn-animate hover-glow">
                 Work With Me
               </a>
-              <a href="mailto:varun@arivlabs.com" className="btn-secondary btn-animate hover-lift">
-                Send Email
+              <a href="#contact" className="btn-secondary btn-animate hover-lift">
+                Contact Me
               </a>
             </div>
           </div>

@@ -40,8 +40,8 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <a href="mailto:varun@arivlabs.com" className="hover:text-white transition-colors">
-                  varun@arivlabs.com
+                <a href="#contact" className="hover:text-white transition-colors">
+                  Contact via form
                 </a>
               </li>
               <li>
