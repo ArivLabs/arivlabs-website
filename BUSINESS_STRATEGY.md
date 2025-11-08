@@ -10,9 +10,9 @@
 - **Build your professional brand** openly
 
 ### ⚠️ **What to Avoid:**
-- **Direct competition** with Cyberdesk's core services
-- **Subcontracting Cyberdesk work** to your employees without written consent
-- **Time conflicts** during Cyberdesk work hours
+- **Direct competition** with CyberDesk's core services
+- **Subcontracting CyberDesk work** to your employees without written consent
+- **Time conflicts** during CyberDesk work hours
 
 ## 🎯 **Recommended Website Strategy**
 
@@ -29,7 +29,7 @@
 **Messaging Focus:**
 - **Complementary services** to enterprise security
 - **Different target markets** (e.g., healthcare, fintech, e-commerce)
-- **Specialized expertise** in areas Cyberdesk doesn't focus on
+- **Specialized expertise** in areas CyberDesk doesn't focus on
 - **Team-based delivery** model
 
 ### **Option B: Conservative Approach**
@@ -41,7 +41,7 @@
 
 ### **1. Service Differentiation**
 
-**Cyberdesk Focus:** Germany-based cybersecurity startup
+**CyberDesk Focus:** Germany-based cybersecurity startup
 **ArivLabs Focus:** Global enterprise software consulting
 
 **Non-Competing Service Areas:**
@@ -53,12 +53,12 @@
 - **Legacy system modernization**
 
 ### **2. Geographic Strategy**
-- **Cyberdesk:** Germany + Europe focus
+- **CyberDesk:** Germany + Europe focus
 - **ArivLabs:** US, India, global markets
 - **Complementary coverage** rather than competing
 
 ### **3. Client Segmentation**
-- **Different company sizes** (Cyberdesk focuses on enterprise security)
+- **Different company sizes** (CyberDesk focuses on enterprise security)
 - **Different industries** (avoid direct cybersecurity competition)
 - **Different project types** (MVP, modernization vs security products)
 
@@ -100,12 +100,12 @@
 
 ### **Communication Strategy:**
 - **Transparent positioning** as complementary business
-- **Clear differentiation** from Cyberdesk services
+- **Clear differentiation** from CyberDesk services
 - **Professional approach** to any conflicts
 - **Written agreements** for any potential overlaps
 
 ### **Time Management:**
-- **Clear boundaries** between Cyberdesk and ArivLabs work
+- **Clear boundaries** between CyberDesk and ArivLabs work
 - **After-hours focus** for ArivLabs business development
 - **Professional scheduling** for client meetings
 
@@ -139,7 +139,7 @@
 
 With your contract allowing business operations, **ArivLabs can be positioned as a legitimate, complementary consulting business**. The key is:
 
-1. **Clear differentiation** from Cyberdesk's focus
+1. **Clear differentiation** from CyberDesk's focus
 2. **Professional transparency** in all communications
 3. **Strategic market positioning** in non-competing verticals
 4. **Gradual, sustainable growth** while maintaining your primary role

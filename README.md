@@ -8,7 +8,7 @@ This website supports two versions controlled by environment variables:
 
 ### Minimal Version (Default)
 - Employment-safe professional profile
-- Current role at Cyberdesk GmbH highlighted
+- Current role at CyberDesk GmbH highlighted
 - Contact information and professional background
 - Perfect for maintaining online presence during employment
 

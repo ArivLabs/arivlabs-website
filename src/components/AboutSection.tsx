@@ -1,7 +1,7 @@
 const AboutSection = () => {
   const experience = [
     {
-      company: 'Cyberdesk GmbH',
+      company: 'CyberDesk GmbH',
       role: 'Senior Software Engineer',
       period: '2025 - Present',
       description: 'Germany-based cybersecurity startup focused on innovative security solutions',
@@ -100,7 +100,7 @@ const AboutSection = () => {
             <div className="bg-primary-50 rounded-lg p-6">
               <h4 className="font-bold text-gray-900 mb-2">Current Status</h4>
               <p className="text-gray-700 text-sm sm:text-base">
-                <strong>Primary Role:</strong> Senior Software Engineer at Cyberdesk GmbH<br />
+                <strong>Primary Role:</strong> Senior Software Engineer at CyberDesk GmbH<br />
                 <strong>Professional Entity:</strong> ArivLabs<br />
                 <strong>Focus:</strong> Cybersecurity and Enterprise Software
               </p>

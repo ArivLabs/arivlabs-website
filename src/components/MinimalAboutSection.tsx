@@ -1,7 +1,7 @@
 const MinimalAboutSection = () => {
   const experience = [
     {
-      company: 'Cyberdesk GmbH',
+      company: 'CyberDesk GmbH',
       role: 'Senior Software Engineer',
       period: '2025 - Present',
       description: 'Germany-based cybersecurity startup focused on innovative security solutions',
@@ -51,7 +51,7 @@ const MinimalAboutSection = () => {
               About ArivLabs & Varun K Nair
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              ArivLabs is my professional entity. I'm currently a Senior Software Engineer at Cyberdesk GmbH 
+              ArivLabs is my professional entity. I'm currently a Senior Software Engineer at CyberDesk GmbH 
               focused on cybersecurity and enterprise software development.
             </p>
           </div>
@@ -83,7 +83,7 @@ const MinimalAboutSection = () => {
               <div className="bg-primary-50 rounded-lg p-6">
                 <h4 className="font-bold text-gray-900 mb-2">Current Status</h4>
                 <p className="text-gray-700">
-                  <strong>Primary Role:</strong> Senior Software Engineer at Cyberdesk GmbH<br />
+                  <strong>Primary Role:</strong> Senior Software Engineer at CyberDesk GmbH<br />
                   <strong>Professional Entity:</strong> ArivLabs<br />
                   <strong>Focus:</strong> Cybersecurity and Enterprise Software
                 </p>
@@ -118,7 +118,7 @@ const MinimalAboutSection = () => {
               <p className="text-lg text-gray-700 leading-relaxed">
                 ArivLabs serves as the professional entity of Varun K Nair, a Senior Software Engineer 
                 specializing in cybersecurity and enterprise software development. Currently focused on his role at 
-                Cyberdesk GmbH, building innovative security solutions.
+                CyberDesk GmbH, building innovative security solutions.
               </p>
             </div>
           </div>

@@ -127,7 +127,7 @@ const MinimalContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Current Role</h4>
-                      <p className="text-gray-600">Senior Software Engineer<br />Cyberdesk GmbH</p>
+                      <p className="text-gray-600">Senior Software Engineer<br />CyberDesk GmbH</p>
                     </div>
                   </div>
 

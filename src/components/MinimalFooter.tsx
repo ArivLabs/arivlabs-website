@@ -30,7 +30,7 @@ const MinimalFooter = () => {
                 </a>
               </div>
               <div className="text-sm">
-                Currently: Senior Software Engineer at Cyberdesk GmbH
+                Currently: Senior Software Engineer at CyberDesk GmbH
               </div>
               <div className="text-sm">
                 Professional software engineer
