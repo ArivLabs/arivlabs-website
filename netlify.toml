@@ -15,12 +15,58 @@
   to = "/index.html"
   status = 200
 
-# Form handling
+# Form handling with notifications
 [[forms]]
   name = "contact"
+  
+  # Email notifications for business inquiries
+  [[forms.notifications]]
+    type = "email"
+    event = "submission"
+    to = "varun@arivlabs.com"
+    subject = "🚀 New Business Inquiry - ArivLabs"
+    body = """
+    New business inquiry received from ArivLabs website!
+    
+    Name: {{ name }}
+    Email: {{ email }}
+    Company: {{ company }}
+    Project Type: {{ projectType }}
+    Budget Range: {{ budget }}
+    Timeline: {{ timeline }}
+    
+    Message:
+    {{ message }}
+    
+    ---
+    Submitted at: {{ created_at }}
+    Form: Full Business Contact
+    """
 
 [[forms]]
   name = "minimal-contact"
+  
+  # Email notifications for professional inquiries
+  [[forms.notifications]]
+    type = "email" 
+    event = "submission"
+    to = "varun@arivlabs.com"
+    subject = "📧 Professional Contact - ArivLabs"
+    body = """
+    New professional contact received from ArivLabs website!
+    
+    Name: {{ name }}
+    Email: {{ email }}
+    Company: {{ company }}
+    Subject: {{ subject }}
+    
+    Message:
+    {{ message }}
+    
+    ---
+    Submitted at: {{ created_at }}
+    Form: Minimal Professional Contact
+    """
 
 # Headers for security
 [[headers]]

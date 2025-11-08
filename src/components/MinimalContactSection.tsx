@@ -36,6 +36,18 @@ const MinimalContactSection = () => {
 
       if (response.ok) {
         setSubmitStatus('success')
+        
+        // Track successful form submission in GA4
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'form_submit', {
+            event_category: 'engagement',
+            event_label: 'minimal_contact_form',
+            form_type: 'minimal_professional_contact',
+            subject: formData.subject,
+            value: 1
+          })
+        }
+        
         setFormData({
           name: '',
           email: '',
@@ -45,6 +57,15 @@ const MinimalContactSection = () => {
         })
       } else {
         setSubmitStatus('error')
+        
+        // Track form submission error in GA4
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'form_error', {
+            event_category: 'error',
+            event_label: 'minimal_contact_form_error',
+            form_type: 'minimal_professional_contact'
+          })
+        }
       }
     } catch (error) {
       setSubmitStatus('error')
