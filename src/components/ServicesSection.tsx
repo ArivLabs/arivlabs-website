@@ -59,30 +59,30 @@ const ServicesSection = () => {
     <section id="services" className="section-padding bg-white">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 px-4 sm:px-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
             Engineering Services That Scale
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600">
             From staff augmentation to complete project delivery, we provide the engineering 
             expertise your startup or enterprise needs to succeed.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20 px-4 sm:px-0">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300">
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-600 mb-6">{service.description}</p>
+            <div key={index} className="bg-gray-50 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300">
+              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{service.icon}</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{service.description}</p>
               <ul className="space-y-2">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-primary-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500 mr-2 sm:mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    {feature}
+                    <span className="text-sm sm:text-base">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -91,21 +91,21 @@ const ServicesSection = () => {
         </div>
 
         {/* Expertise Section */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Our Technical Expertise</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="text-center px-4 sm:px-0">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">Our Technical Expertise</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {expertise.map((skill, index) => (
-              <div key={index} className="bg-primary-50 rounded-lg p-4 text-center hover:bg-primary-100 transition-colors duration-200">
-                <div className="text-2xl mb-2">{skill.icon}</div>
-                <div className="text-sm font-medium text-gray-700">{skill.name}</div>
+              <div key={index} className="bg-primary-50 rounded-lg p-3 sm:p-4 text-center hover:bg-primary-100 transition-colors duration-200">
+                <div className="text-xl sm:text-2xl mb-1 sm:mb-2">{skill.icon}</div>
+                <div className="text-xs sm:text-sm font-medium text-gray-700">{skill.name}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <a href="#contact" className="btn-primary text-lg px-8 py-4">
+        <div className="text-center mt-8 sm:mt-12 px-4 sm:px-0">
+          <a href="#contact" className="btn-primary">
             Discuss Your Project
           </a>
         </div>

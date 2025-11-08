@@ -10,12 +10,51 @@ const ContactSection = () => {
     timeline: '',
     message: ''
   })
+  
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const form = e.target as HTMLFormElement
+      const formDataToSend = new FormData(form)
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataToSend as any).toString()
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          projectType: '',
+          budget: '',
+          timeline: '',
+          message: ''
+        })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const projectTypes = [
@@ -50,21 +89,21 @@ const ContactSection = () => {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               Ready to Scale Your Team?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">
               Tell us about your project and we'll get back to you within 24 hours 
               with a custom proposal and next steps.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Get in Touch</h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
@@ -141,15 +180,14 @@ const ContactSection = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
                 <form 
                   name="contact" 
                   method="POST" 
                   data-netlify="true" 
                   data-netlify-honeypot="bot-field"
-                  data-netlify-recaptcha="true"
-                  action="/thank-you"
-                  className="space-y-6"
+                  onSubmit={handleSubmit}
+                  className="space-y-4 sm:space-y-6"
                 >
                   {/* Netlify form detection */}
                   <input type="hidden" name="form-name" value="contact" />
@@ -170,7 +208,7 @@ const ContactSection = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
                         placeholder="John Doe"
                       />
                     </div>
@@ -186,7 +224,7 @@ const ContactSection = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -218,7 +256,7 @@ const ContactSection = () => {
                         required
                         value={formData.projectType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
                       >
                         <option value="">Select Type</option>
                         {projectTypes.map((type) => (
@@ -236,7 +274,7 @@ const ContactSection = () => {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
                       >
                         <option value="">Select Budget</option>
                         {budgetRanges.map((range) => (
@@ -254,7 +292,7 @@ const ContactSection = () => {
                         name="timeline"
                         value={formData.timeline}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
                       >
                         <option value="">Select Timeline</option>
                         {timelines.map((time) => (
@@ -280,18 +318,57 @@ const ContactSection = () => {
                     />
                   </div>
 
-                  {/* reCAPTCHA */}
-                  <div data-netlify-recaptcha="true"></div>
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <div>
+                          <h4 className="text-green-800 font-medium">Project details sent successfully!</h4>
+                          <p className="text-green-700 text-sm">Thank you for reaching out. We'll respond within 24 hours with a custom proposal.</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <svg className="w-5 h-5 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                        </svg>
+                        <div>
+                          <h4 className="text-red-800 font-medium">Failed to send project details</h4>
+                          <p className="text-red-700 text-sm">Please try again or email us directly at varun@arivlabs.com</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <button
                       type="submit"
-                      className="btn-primary flex-1 text-center"
+                      disabled={isSubmitting}
+                      className={`btn-primary flex-1 text-center flex items-center justify-center ${
+                        isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                      }`}
                     >
-                      Send Project Details
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        'Send Project Details'
+                      )}
                     </button>
                     <a
-                      href="mailto:info@arivlabs.com"
+                      href="mailto:varun@arivlabs.com"
                       className="btn-secondary flex-1 text-center"
                     >
                       Email Directly
