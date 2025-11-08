@@ -1,4 +1,8 @@
+import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation'
+
 const ServicesSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation()
+  const { ref: servicesRef, visibleItems: visibleServices } = useStaggeredAnimation(4, 150)
   // Professional SVG icon component
   const ServiceIcon = ({ type, className = "w-8 h-8" }: { type: string; className?: string }) => {
     const icons = {
@@ -114,10 +118,10 @@ const ServicesSection = () => {
   ]
 
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-padding bg-white" ref={sectionRef}>
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 px-4 sm:px-0">
+        <div className={`text-center max-w-3xl mx-auto mb-12 sm:mb-16 px-4 sm:px-0 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
             Engineering Services That Scale
           </h2>
@@ -128,10 +132,16 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20 px-4 sm:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20 px-4 sm:px-0" ref={servicesRef}>
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-6 sm:p-8 hover:shadow-lg transition-shadow duration-300">
-              <div className="text-primary-600 mb-3 sm:mb-4">
+            <div 
+              key={index} 
+              className={`bg-gray-50 rounded-xl p-6 sm:p-8 card-hover hover-lift transition-all duration-500 ${
+                visibleServices[index] ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
+              <div className="text-primary-600 mb-3 sm:mb-4 icon-bounce">
                 <ServiceIcon type={service.iconType} className="w-8 h-8 sm:w-10 sm:h-10" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
@@ -151,12 +161,16 @@ const ServicesSection = () => {
         </div>
 
         {/* Expertise Section */}
-        <div className="text-center px-4 sm:px-0">
+        <div className={`text-center px-4 sm:px-0 transition-all duration-1000 delay-300 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">Our Technical Expertise</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {expertise.map((skill, index) => (
-              <div key={index} className="bg-primary-50 rounded-lg p-3 sm:p-4 text-center hover:bg-primary-100 transition-colors duration-200">
-                <div className="text-primary-600 mb-1 sm:mb-2 flex justify-center">
+              <div 
+                key={index} 
+                className="bg-primary-50 rounded-lg p-3 sm:p-4 text-center hover:bg-primary-100 hover-scale transition-all duration-300"
+                style={{ animationDelay: `${600 + index * 100}ms` }}
+              >
+                <div className="text-primary-600 mb-1 sm:mb-2 flex justify-center icon-bounce">
                   <ServiceIcon type={skill.iconType} className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <div className="text-xs sm:text-sm font-medium text-gray-700">{skill.name}</div>
@@ -166,8 +180,8 @@ const ServicesSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-8 sm:mt-12 px-4 sm:px-0">
-          <a href="#contact" className="btn-primary">
+        <div className={`text-center mt-8 sm:mt-12 px-4 sm:px-0 transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
+          <a href="#contact" className="btn-primary btn-animate hover-glow">
             Discuss Your Project
           </a>
         </div>

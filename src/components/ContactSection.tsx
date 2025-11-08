@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const ContactSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -108,11 +110,11 @@ const ContactSection = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gray-50">
+    <section id="contact" className="section-padding bg-gray-50" ref={sectionRef}>
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
+          <div className={`text-center mb-12 sm:mb-16 px-4 sm:px-0 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               Ready to Scale Your Team?
             </h2>
@@ -124,8 +126,8 @@ const ContactSection = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
+            <div className={`lg:col-span-1 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in-left' : 'opacity-0 -translate-x-8'}`}>
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover-lift">
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Get in Touch</h3>
                 
                 <div className="space-y-6">
@@ -225,8 +227,8 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
+            <div className={`lg:col-span-2 transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-8'}`}>
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover-lift">
                 <form 
                   name="contact" 
                   method="POST" 
@@ -254,7 +256,7 @@ const ContactSection = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 hover:border-primary-300 transition-all duration-300 transform hover:scale-[1.02] focus:scale-[1.02] text-sm sm:text-base"
                         placeholder="John Doe"
                       />
                     </div>
@@ -270,7 +272,7 @@ const ContactSection = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 hover:border-primary-300 transition-all duration-300 transform hover:scale-[1.02] focus:scale-[1.02] text-sm sm:text-base"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -302,7 +304,7 @@ const ContactSection = () => {
                         required
                         value={formData.projectType}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 hover:border-primary-300 transition-all duration-300 transform hover:scale-[1.02] focus:scale-[1.02] text-sm sm:text-base"
                       >
                         <option value="">Select Type</option>
                         {projectTypes.map((type) => (
@@ -320,7 +322,7 @@ const ContactSection = () => {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 hover:border-primary-300 transition-all duration-300 transform hover:scale-[1.02] focus:scale-[1.02] text-sm sm:text-base"
                       >
                         <option value="">Select Budget</option>
                         {budgetRanges.map((range) => (
@@ -338,7 +340,7 @@ const ContactSection = () => {
                         name="timeline"
                         value={formData.timeline}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 hover:border-primary-300 transition-all duration-300 transform hover:scale-[1.02] focus:scale-[1.02] text-sm sm:text-base"
                       >
                         <option value="">Select Timeline</option>
                         {timelines.map((time) => (
@@ -397,7 +399,7 @@ const ContactSection = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`btn-primary flex-1 text-center flex items-center justify-center ${
+                      className={`btn-primary btn-animate hover-glow flex-1 text-center flex items-center justify-center ${
                         isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
                       }`}
                     >
