@@ -17,16 +17,29 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Prevent flickering by checking if element is already in view
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect()
+      const isInView = rect.top < window.innerHeight && rect.bottom > 0
+      if (isInView) {
+        setIsVisible(true)
+        return
+      }
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          if (triggerOnce && ref.current) {
-            observer.unobserve(ref.current)
+        // Use requestAnimationFrame to prevent layout thrashing
+        requestAnimationFrame(() => {
+          if (entry.isIntersecting) {
+            setIsVisible(true)
+            if (triggerOnce && ref.current) {
+              observer.unobserve(ref.current)
+            }
+          } else if (!triggerOnce) {
+            setIsVisible(false)
           }
-        } else if (!triggerOnce) {
-          setIsVisible(false)
-        }
+        })
       },
       {
         threshold,
@@ -52,18 +65,44 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
 export const useParallax = (speed: number = 0.5) => {
   const [offset, setOffset] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
+  const rafRef = useRef<number>()
 
   useEffect(() => {
     const handleScroll = () => {
-      if (ref.current) {
-        const scrolled = window.pageYOffset
-        const rate = scrolled * -speed
-        setOffset(rate)
+      // Cancel previous frame
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current)
+      }
+      
+      // Use requestAnimationFrame for smooth updates
+      rafRef.current = requestAnimationFrame(() => {
+        if (ref.current) {
+          const scrolled = window.pageYOffset
+          const rate = scrolled * -speed
+          setOffset(rate)
+        }
+      })
+    }
+
+    // Throttle scroll events for better performance
+    let ticking = false
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', throttledScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', throttledScroll)
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current)
+      }
+    }
   }, [speed])
 
   return { ref, offset }

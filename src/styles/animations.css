@@ -1,56 +1,80 @@
-/* Professional Animation Library for ArivLabs */
+/* Professional Animation Library for ArivLabs - Optimized for Smooth Performance */
 
-/* Keyframe Animations */
+/* Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force GPU acceleration for all animated elements */
+.animate-fade-in-up,
+.animate-fade-in-left,
+.animate-fade-in-right,
+.animate-scale-in,
+.card-hover,
+.hover-lift,
+.hover-scale,
+.hover-glow,
+.btn-animate,
+.icon-bounce,
+.parallax-element {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Keyframe Animations - Optimized for smoothness */
 @keyframes fadeInUp {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 30px, 0);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fadeInLeft {
-  from {
+  0% {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translate3d(-30px, 0, 0);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fadeInRight {
-  from {
+  0% {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translate3d(30px, 0, 0);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes scaleIn {
-  from {
+  0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: translate3d(0, 0, 0) scale3d(0.95, 0.95, 1);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
   }
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translate3d(0, -10px, 0);
   }
 }
 
@@ -86,21 +110,25 @@
   }
 }
 
-/* Animation Classes */
+/* Animation Classes - Optimized for smoothness */
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
 }
 
 .animate-fade-in-left {
-  animation: fadeInLeft 0.8s ease-out forwards;
+  animation: fadeInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
 }
 
 .animate-fade-in-right {
-  animation: fadeInRight 0.8s ease-out forwards;
+  animation: fadeInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.6s ease-out forwards;
+  animation: scaleIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
 }
 
 .animate-float {
@@ -116,16 +144,17 @@
   animation: gradient-shift 4s ease infinite;
 }
 
-/* Scroll-triggered animations */
+/* Scroll-triggered animations - Optimized */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate3d(0, 30px, 0);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
 }
 
 .scroll-animate.animate {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Staggered animations */
@@ -136,38 +165,42 @@
 .stagger-5 { animation-delay: 0.5s; }
 .stagger-6 { animation-delay: 0.6s; }
 
-/* Hover Animations */
+/* Hover Animations - Optimized for smoothness */
 .hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px);
+  transform: translate3d(0, -8px, 0);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .hover-scale {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
 .hover-scale:hover {
-  transform: scale(1.05);
+  transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1);
 }
 
 .hover-glow {
-  transition: all 0.3s ease;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
 }
 
 .hover-glow:hover {
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-  transform: translateY(-2px);
+  transform: translate3d(0, -2px, 0);
 }
 
-/* Button Animations */
+/* Button Animations - Optimized */
 .btn-animate {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
 }
 
 .btn-animate::before {
@@ -178,7 +211,8 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: left;
 }
 
 .btn-animate:hover::before {
@@ -186,7 +220,7 @@
 }
 
 .btn-animate:hover {
-  transform: translateY(-2px);
+  transform: translate3d(0, -2px, 0);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -209,32 +243,35 @@
   animation: scaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Icon Animations */
+/* Icon Animations - Optimized */
 .icon-bounce {
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
 }
 
 .icon-bounce:hover {
-  transform: scale(1.2) rotate(5deg);
+  transform: translate3d(0, 0, 0) scale3d(1.15, 1.15, 1) rotate3d(0, 0, 1, 3deg);
 }
 
 .icon-spin-hover {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
 .icon-spin-hover:hover {
-  transform: rotate(360deg);
+  transform: rotate3d(0, 0, 1, 360deg);
 }
 
-/* Card Animations */
+/* Card Animations - Optimized */
 .card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
   transform-style: preserve-3d;
 }
 
 .card-hover:hover {
-  transform: translateY(-10px) rotateX(5deg);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  transform: translate3d(0, -8px, 0) rotateX(2deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 /* Text Animations */
@@ -271,19 +308,66 @@ html {
   }
 }
 
-/* Mobile Optimizations */
+/* Mobile Optimizations - Enhanced for smooth performance */
 @media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
   .animate-fade-in-up,
   .animate-fade-in-left,
   .animate-fade-in-right {
-    animation-duration: 0.6s;
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .hover-lift:hover {
-    transform: translateY(-4px);
+  .animate-scale-in {
+    animation-duration: 0.3s;
   }
   
-  .card-hover:hover {
-    transform: translateY(-5px);
+  /* Simplified hover effects for touch devices */
+  .hover-lift:hover,
+  .hover-lift:active {
+    transform: translate3d(0, -4px, 0);
+  }
+  
+  .card-hover:hover,
+  .card-hover:active {
+    transform: translate3d(0, -4px, 0);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-bounce:hover,
+  .icon-bounce:active {
+    transform: translate3d(0, 0, 0) scale3d(1.1, 1.1, 1);
+  }
+  
+  /* Disable complex 3D transforms on mobile for better performance */
+  .card-hover {
+    transform-style: flat;
+  }
+  
+  /* Reduce parallax intensity on mobile */
+  .parallax-element {
+    transform: translate3d(0, 0, 0) !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-glow:hover,
+  .card-hover:hover,
+  .icon-bounce:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Use active states instead of hover for touch */
+  .hover-lift:active {
+    transform: translate3d(0, -2px, 0);
+  }
+  
+  .card-hover:active {
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
 }
