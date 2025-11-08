@@ -1,9 +1,31 @@
 const PricingSection = () => {
+  // Professional SVG icon component
+  const EngagementIcon = ({ type, className = "w-8 h-8" }: { type: string; className?: string }) => {
+    const icons = {
+      'clock': (
+        <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      ),
+      'team': (
+        <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h3v4h2v-7.5c0-1.1-.9-2-2-2s-2 .9-2 2V18H4zm5.5-2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5-1.5.67-1.5 1.5zM7.5 8.5C7.5 9.33 8.17 10 9 10s1.5-.67 1.5-1.5S9.83 7 9 7s-1.5.67-1.5 1.5z"/>
+        </svg>
+      ),
+      'clipboard': (
+        <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+        </svg>
+      )
+    }
+    return icons[type as keyof typeof icons] || icons.clock
+  }
+
   const engagementModels = [
     {
       title: 'Staff Augmentation',
       description: 'Extend your team with skilled engineers who integrate seamlessly',
-      icon: '⏱️',
+      iconType: 'clock',
       features: [
         'Flexible engagement terms',
         'No long-term commitments',
@@ -19,7 +41,7 @@ const PricingSection = () => {
     {
       title: 'Dedicated Teams',
       description: 'Complete engineering pods working exclusively on your projects',
-      icon: '👥',
+      iconType: 'team',
       features: [
         'Dedicated team members',
         'Consistent team composition',
@@ -35,7 +57,7 @@ const PricingSection = () => {
     {
       title: 'Project Delivery',
       description: 'End-to-end project execution with defined scope and timeline',
-      icon: '📋',
+      iconType: 'clipboard',
       features: [
         'Fixed scope and timeline',
         'Milestone-based delivery',
@@ -69,7 +91,9 @@ const PricingSection = () => {
           {engagementModels.map((model, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
               <div className="text-center mb-8">
-                <div className="text-4xl mb-4">{model.icon}</div>
+                <div className="text-primary-600 mb-4 flex justify-center">
+                  <EngagementIcon type={model.iconType} className="w-12 h-12" />
+                </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{model.title}</h3>
                 <p className="text-gray-600">{model.description}</p>
               </div>
