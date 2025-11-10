@@ -103,7 +103,13 @@ const MinimalAboutSection = () => {
                       <h4 className="text-lg font-bold text-gray-900">{exp.role}</h4>
                       <span className="text-sm text-primary-600 font-medium">{exp.period}</span>
                     </div>
-                    <h5 className="text-primary-600 font-semibold mb-2">{exp.company}</h5>
+                    <h5 className="text-primary-600 font-semibold mb-2">
+                      {exp.company === COMPANY_NAMES.CURRENT_EMPLOYER ? (
+                        <MaskedText text={exp.company} className="inline" />
+                      ) : (
+                        exp.company
+                      )}
+                    </h5>
                     <p className="text-gray-600 mb-3 text-sm">{exp.description}</p>
                     <div className="inline-block bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-xs font-medium">
                       {exp.focus}
