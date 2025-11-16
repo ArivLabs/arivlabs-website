@@ -122,7 +122,8 @@ const AboutSection = () => {
               <p className="text-gray-700 text-sm sm:text-base">
                 <strong>Primary Role:</strong> Senior Software Engineer at <MaskedText text="CyberDesk GmbH" className="inline" /><br />
                 <strong>Professional Entity:</strong> ArivLabs<br />
-                <strong>Focus:</strong> Cybersecurity and Enterprise Software
+                <strong>Focus:</strong> IT Consulting, Cybersecurity, DSPM, Enterprise Software<br />
+                <strong>Location:</strong>Worldwide Remote Services
               </p>
             </div>
           </div>
