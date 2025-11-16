@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import MaskedText from './MaskedText'
 
 const MinimalContactSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,11 +86,11 @@ const MinimalContactSection = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gray-50">
+    <section id="contact" className="section-padding bg-gray-50" ref={sectionRef}>
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
+          <div className={`text-center mb-12 sm:mb-16 px-4 sm:px-0 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               Get in Touch
             </h2>
@@ -100,8 +102,8 @@ const MinimalContactSection = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Contact Info */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
+            <div className={`lg:col-span-1 transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in-left' : 'opacity-0 -translate-x-8'}`}>
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover-lift">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
                 
                 <div className="space-y-6">
@@ -197,8 +199,8 @@ const MinimalContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
+            <div className={`lg:col-span-2 transition-all duration-1000 delay-300 ${isVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-8'}`}>
+              <div className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover-lift">
                 <form 
                   name="minimal-contact" 
                   method="POST" 

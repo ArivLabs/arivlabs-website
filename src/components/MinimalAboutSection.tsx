@@ -1,7 +1,10 @@
+import { useScrollAnimation, useStaggeredAnimation } from '../hooks/useScrollAnimation'
 import MaskedText from './MaskedText'
 import { COMPANY_NAMES } from '../constants/companyNames'
 
 const MinimalAboutSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation()
+  const { ref: experienceRef, visibleItems: visibleExperience } = useStaggeredAnimation(4, 200)
   const experience = [
     {
       company: COMPANY_NAMES.CURRENT_EMPLOYER,
@@ -45,11 +48,11 @@ const MinimalAboutSection = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-white" ref={sectionRef}>
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16 px-4 sm:px-0">
+          <div className={`text-center mb-12 sm:mb-16 px-4 sm:px-0 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
               About ArivLabs & Varun K Nair
             </h2>
@@ -61,7 +64,7 @@ const MinimalAboutSection = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
             {/* Left Column - About */}
-            <div className="px-4 sm:px-0">
+            <div className={`px-4 sm:px-0 transition-all duration-1000 ${isVisible ? 'animate-fade-in-left' : 'opacity-0 -translate-x-8'}`}>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Professional Background</h3>
               <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 With close to a decade of experience in software engineering, I've helped startups scale from early stage 
@@ -73,7 +76,13 @@ const MinimalAboutSection = () => {
                 <h4 className="text-xl font-bold text-gray-900 mb-4">Core Expertise</h4>
                 <div className="grid grid-cols-2 gap-3">
                   {skills.map((skill, index) => (
-                    <div key={index} className="flex items-center text-gray-700">
+                    <div 
+                      key={index} 
+                      className={`flex items-center text-gray-700 transition-all duration-500 ${
+                        isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-4'
+                      }`}
+                      style={{ animationDelay: `${300 + index * 100}ms` }}
+                    >
                       <svg className="w-4 h-4 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
@@ -94,11 +103,17 @@ const MinimalAboutSection = () => {
             </div>
 
             {/* Right Column - Experience */}
-            <div>
+            <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'animate-fade-in-right' : 'opacity-0 translate-x-8'}`}>
               <h3 className="text-2xl font-bold text-gray-900 mb-8">Professional Journey</h3>
-              <div className="space-y-6">
+              <div className="space-y-6" ref={experienceRef}>
                 {experience.map((exp, index) => (
-                  <div key={index} className="border-l-4 border-primary-500 pl-6 pb-6">
+                  <div 
+                    key={index} 
+                    className={`border-l-4 border-primary-500 pl-6 pb-6 card-hover transition-all duration-500 ${
+                      visibleExperience[index] ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                    }`}
+                    style={{ animationDelay: `${400 + index * 200}ms` }}
+                  >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                       <h4 className="text-lg font-bold text-gray-900">{exp.role}</h4>
                       <span className="text-sm text-primary-600 font-medium">{exp.period}</span>
@@ -121,7 +136,7 @@ const MinimalAboutSection = () => {
           </div>
 
           {/* Mission Statement */}
-          <div className="mt-20 text-center max-w-4xl mx-auto">
+          <div className={`mt-20 text-center max-w-4xl mx-auto transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
             <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-12">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">About ArivLabs</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
