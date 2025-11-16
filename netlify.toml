@@ -5,11 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-[[redirects]]
-  from = "/thank-you"
-  to = "/thank-you.html"
-  status = 200
-
+# SPA fallback - rewrite all routes to index.html (not a redirect)
 [[redirects]]
   from = "/*"
   to = "/index.html"
